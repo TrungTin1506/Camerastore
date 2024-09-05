@@ -37,7 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check the quantity before processing the order
     if ($quantity > 0) {
-        // Process order logic (e.g., save to database, update cart)
+        addToCart($productId, $productName, $quantity, $price);
+
+        // Redirect to the cart details page
+        header("Location: ../cart_detail.php");
+        exit();
     } else {
         // Handle the case where quantity is zero
         echo "Quantity must be greater than zero.";

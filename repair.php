@@ -390,57 +390,35 @@ include("./navbar.php");
                 <div class="col-sm-3 col-12">
                         <div class="block-product-item">
                                 <h3 class="page_title text-center">Sản phẩm nổi bật</h3>
-                                <div class="item"> <a href="product.html" style="text-decoration: none;">
+                                <div class="item"> <a href="product.php?id=1" style="text-decoration: none;">
                                 </div>
                                 <div class="content" style=" background-color: burlywood;">
                                         <div class="img" style="text-align: center; color: black; ">
                                                 <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
                                                         class="img-responsive " style="width: 100%;  ">
-                                                <p class="name">DJI Osmo Pocket 3</p>
+                                                <p class="name">Canon 200D</p>
                                                 <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
                                         </div>
                                         </a>
                                 </div>
-                                <div class="item"> <a href="product.html" style="text-decoration: none;">
+                                <div class="item"> <a href="product.php?id=1" style="text-decoration: none;">
                                 </div>
                                 <div class="content" style=" background-color: burlywood;">
                                         <div class="img" style="text-align: center; color: black; ">
                                                 <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
                                                         class="img-responsive " style="width: 100%;  ">
-                                                <p class="name">DJI Osmo Pocket 3</p>
+                                                <p class="name">Canon 200D</p>
                                                 <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
                                         </div>
                                         </a>
                                 </div>
-                                <div class="item"> <a href="product.html" style="text-decoration: none;">
+                                <div class="item"> <a href="product.php?id=1" style="text-decoration: none;">
                                 </div>
                                 <div class="content" style=" background-color: burlywood;">
                                         <div class="img" style="text-align: center; color: black; ">
                                                 <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
                                                         class="img-responsive " style="width: 100%;  ">
-                                                <p class="name">DJI Osmo Pocket 3</p>
-                                                <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
-                                        </div>
-                                        </a>
-                                </div>
-                                <div class="item"> <a href="product.html" style="text-decoration: none;">
-                                </div>
-                                <div class="content" style=" background-color: burlywood;">
-                                        <div class="img" style="text-align: center; color: black; ">
-                                                <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
-                                                        class="img-responsive " style="width: 100%;  ">
-                                                <p class="name">DJI Osmo Pocket 3</p>
-                                                <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
-                                        </div>
-                                        </a>
-                                </div>
-                                <div class="item"> <a href="product.html" style="text-decoration: none;">
-                                </div>
-                                <div class="content" style=" background-color: burlywood;">
-                                        <div class="img" style="text-align: center; color: black; ">
-                                                <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
-                                                        class="img-responsive " style="width: 100%;  ">
-                                                <p class="name">DJI Osmo Pocket 3</p>
+                                                <p class="name">Canon 200D</p>
                                                 <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
                                         </div>
                                         </a>

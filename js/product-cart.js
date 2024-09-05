@@ -47,5 +47,5 @@ function displayBuyBox(id) {
 }
 
 function openProductDetail(id) {
-  window.location.href = `product.html?id=${id}`;
+  window.location.href = `product.php?id=${id}`;
 }

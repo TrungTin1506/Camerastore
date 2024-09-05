@@ -189,7 +189,7 @@ $totalPrice = getCartTotal($conn);
 
 <div id="buyBox">
   <?php foreach ($products as $product): ?>
-    <form method="POST" action="./php/products.php">
+    <form method="POST" action="./php/products.php" header="./cart_detail.php">
       <?php $image = json_decode($product['images'])[0]; ?>
       <div class="notiBox-<?php echo $product['id']; ?>" id="notiBox" style="display: none;">
         <div class="backgroundNoti"></div>
@@ -240,7 +240,6 @@ $totalPrice = getCartTotal($conn);
 <script src="js/product-slider.js" type="text/javascript"></script>
 <script src="./js/product-cart.js" type="text/javascript"></script>
 <script src="js/banner.js" type="text/javascript"></script>
-<script src="js/autocomplete.js" type="text/javascript"></script>
 <script src="js/footer.js" type="text/javascript"></script>
 <script src="./js/navbar.js"></script>
 </body>

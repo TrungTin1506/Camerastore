@@ -8,10 +8,6 @@ $cart_items = $conn->query("SELECT c.product_id, c.quantity, p.title, p.price, p
 $total_price = 0;
 ?>
 
-<?php
-$total_price = 20100000; // Replace this with your actual total price calculation
-$free_shipping_threshold = 500000; // Threshold for free shipping
-?>
 
 <!--------------------- Delivery -------------------------->
 <div class="delivery">

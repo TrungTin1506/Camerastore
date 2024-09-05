@@ -1,4 +1,5 @@
 <?php
+include_once("./php/suggestions.php");
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -121,85 +122,120 @@ if ($result->num_rows > 0) {
         <div class="dropdown">
           <a href="contact.php"><button class="subBtn">Liên hệ</button></a>
         </div>
-        <div class="dropdown">
-          <button class="subBtn">Bảo hành</button>
-        </div>
       </div>
       <button onclick=showSidebar() class="showOnMobile hideOnNavbar ml-mobile"><img class='menuImg' src='./img/menu.png'></button>
-      <div class="blockNav2 hideOnMobile widthOnMobile">
-        <div class="search_box hideOn">
+      <div class="search_box hideOn">
+        <form action="./php/search.php" method="GET">
           <div class="row-search-box">
-            <input type="text" id="input-box" name="input-box" autocomplete="off" placeholder="Tìm kiếm" />
-            <button>
-              <img src="img/SearchIcon.png" />
+            <input type="text" id="input-box" name="query" autocomplete="off" placeholder="Tìm kiếm" />
+            <button type="submit">
+              <img src="img/SearchIcon.png" alt="Search" />
             </button>
           </div>
           <div class="result-box"></div>
-        </div>
-
-        <div class="login-icon" class='hideOnMobile'>
-          <a href="login.php">
-            <img class='hideOnMobile' width=30px src="img/signin-icon.png" alt="" />
-          </a>
-        </div>
-
-        <div id="totalCart" class='hideOnMobile'>
-          <p class='hideOnMobile' id="count"><?php echo $totalQuantity; ?></p>
-          <a href="cart_detail.php">
-            <img class='hideOnMobile' src="./img/carticon.png" alt="" />
-          </a>
-        </div>
+        </form>
       </div>
-    </div>
-
-    <div class="sideBar hideOnNavbar">
-      <div class="logo">
-        <a href="Home.php">
-          <img src="./img/ProCam.png" alt="" />
+      <div class="login-icon" class='hideOnMobile'>
+        <a href="login.php">
+          <img class='hideOnMobile' width=30px src="img/signin-icon.png" alt="" />
         </a>
-        <button onclick=hideSidebar() class="closeBtn showOnMobile"><img class='menuImg' src='./img/close.png'></button>
       </div>
-      <div class="blockNav1 hideOnMobile">
-
-        <div class="dropdown">
-          <a href="Home.php">
-            <button class="subBtn">
-              Trang chủ
-            </button>
-          </a>
-        </div>
-        <div class="dropdown">
-          <a href="category.php">
-            <button class="subBtn">Sản phẩm</button>
-          </a>
-        </div>
-        <div class="dropdown">
-          <a href="category.php">
-            <button class="subBtn">Phụ kiện</button>
-          </a>
-        </div>
-        <div class="dropdown">
-          <a href="repair.php">
-            <button class="subBtn">Sửa chữa</button>
-          </a>
-        </div>
-        <div class="dropdown">
-          <a href="event.php">
-            <button class="subBtn">Khuyến mãi</button>
-          </a>
-        </div>
-        <div class="dropdown">
-          <a href="contact.php">
-            <button class="subBtn">Liên hệ</button>
-          </a>
-        </div>
-        <div class="dropdown">
-          <button class="subBtn">Bảo hành</button>
-        </div>
+      <div id="totalCart" class='hideOnMobile'>
+        <p class='hideOnMobile' id="count"><?php echo $totalQuantity; ?></p>
+        <a href="cart_detail.php">
+          <img src="./img/carticon.png" alt="" />
+        </a>
       </div>
     </div>
   </div>
+
+  <div class="sideBar hideOnNavbar">
+    <div class="logo">
+      <a href="Home.php">
+        <img src="./img/ProCam.png" alt="" />
+      </a>
+      <button onclick=hideSidebar() class="closeBtn showOnMobile"><img class='menuImg' src='./img/close.png'></button>
+    </div>
+    <div class="blockNav1 hideOnMobile">
+
+      <div class="dropdown">
+        <a href="Home.php">
+          <button class="subBtn">
+            Trang chủ
+          </button>
+        </a>
+      </div>
+      <div class="dropdown">
+        <a href="category.php">
+          <button class="subBtn">Sản phẩm</button>
+        </a>
+      </div>
+      <div class="dropdown">
+        <a href="category.php">
+          <button class="subBtn">Phụ kiện</button>
+        </a>
+      </div>
+      <div class="dropdown">
+        <a href="repair.php">
+          <button class="subBtn">Sửa chữa</button>
+        </a>
+      </div>
+      <div class="dropdown">
+        <a href="event.php">
+          <button class="subBtn">Khuyến mãi</button>
+        </a>
+      </div>
+      <div class="dropdown">
+        <a href="contact.php">
+          <button class="subBtn">Liên hệ</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
   <script src="js/danhmuc.js" type="text/javascript"></script>
+  <script>
+    const inputBox = document.getElementById("input-box");
+    const resultsBox = document.querySelector(".result-box");
+
+    inputBox.addEventListener("keyup", function() {
+      const query = inputBox.value;
+
+      if (query.length > 0) {
+        fetch(`./php/suggestions.php?suggest=${query}`)
+          .then(response => response.json())
+          .then(data => {
+            displaySuggestions(data);
+          });
+      } else {
+        resultsBox.innerHTML = "";
+      }
+    });
+
+    function displaySuggestions(suggestions) {
+      if (suggestions.length > 0) {
+        const content = suggestions.map(suggestion => {
+          return `<li onclick="selectInput('${suggestion}')">${suggestion}</li>`;
+        }).join("");
+        resultsBox.innerHTML = `<ul>${content}</ul>`;
+      } else {
+        resultsBox.innerHTML = "";
+      }
+    }
+
+    function selectInput(value) {
+      inputBox.value = value;
+      resultsBox.innerHTML = "";
+    }
+
+    // Close the suggestion box when clicking outside of it
+    document.addEventListener("click", function(event) {
+      const isClickInside = document.querySelector(".search_box").contains(event.target);
+      if (!isClickInside) {
+        resultsBox.innerHTML = ""; // Hide suggestions
+      }
+    });
+  </script>
 </body>
 
 </html>

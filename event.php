@@ -34,7 +34,7 @@ $result = $conn->query($sql);
                 $price = htmlspecialchars($row['price'], ENT_QUOTES);
                 $formattedPrice = number_format($price, 0, ',', '.'); // Format price to VND
                 echo "<div id='product' class=''>
-                    <a href='product.html' class='productLink'>
+                    <a href='product.php?id=$id' class='productLink'>
                         <img class='productImg' src='$primaryImage' alt='$title'>
                     </a>
                     <label class='productName'>$title</label>
@@ -115,3 +115,4 @@ $result = $conn->query($sql);
 <script src="js/footer.js" type="text/javascript"></script>
 <script src="js/discount.js"></script>
 <script src="./js/product-cart.js" type="text/javascript"></script>
+<script src="js/navbar.js"></script>

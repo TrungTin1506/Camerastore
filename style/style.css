@@ -392,7 +392,11 @@ button.closeBtn.showOnMobile {
 /* ----------------------------------------- Add Cart -----------------------------------------*/
 #totalCart {
     display: flex;
-    margin-left: 30px;
+    margin-left: 12px;
+}
+
+.login-icon {
+    margin: 12px;
 }
 
 #totalCart>p {
@@ -700,12 +704,13 @@ content {
 }
 
 .cartegory-right-content-item {
+    background-image: url("../img/background_product.jpg");
     width: calc(100% / 4);
     text-align: center;
     padding: 12px 0;
     position: relative;
     flex: 1 1 calc(25% - 20px);
-    display: none;
+    /* display: none; */
     border: 1px solid #ccc;
     /* Lighter border color */
     border-radius: 10px;
